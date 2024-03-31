@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pom-container{
+    display: flex;
+    width: 40vh;
+    height: 50vh;
+    background-color: rgb(40, 40, 40);
+    border-radius: 48px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pom-header{
+    display: flex;
+    width: 90%;
+    height: 10%;
+    margin-top: 24px;
+    flex-direction: row;
+    white-space: space-between;
+    align-items: center;
+}
+
+.pom-content{
+    display: flex;
+    width: 90%;
+    height: 80%;
+}
+
+.pom-footer{
+    display: flex;
+    width: 90%;
+    height: 10%;
+    margin-bottom: 24px;
+
+}
+
+.pom-tomato{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 36px;
+    height: 40px;
+}
+
+.dot{
+    display: flex;
+    border-radius: 100%;
+    background-color: white;
+    width: 8px;
+    height: 8px;
+}
+
