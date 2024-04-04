@@ -49,21 +49,24 @@ function settingslistener() {
     settingsbutton = document.getElementById(('settings'));
     containersettings = document.getElementById('container-settings');
     closebutton = document.getElementById('settings-close');
+    settingstitle = document.getElementById('title');
 
     settingsbutton.addEventListener('click',function(){
         containersettings.style.width = '40vh';
         closebutton.style.width = '36px';
-
+        settingstitle.style.display = 'flex';
     });
 }
 
 function closebuttonlistener() {
     closebutton = document.getElementById('settings-close');
     containersettings = document.getElementById('container-settings');
+    settingstitle = document.getElementById('title');
 
     closebutton.addEventListener('click',function() {
         containersettings.style.width = '0vh';
         closebutton.style.width = '0vh';
+        settingstitle.style.display = 'none';
     })
 
 
