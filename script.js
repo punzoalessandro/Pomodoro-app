@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', init());
 var buttonactivated;
-
-
-
+var optionsstudyopened;
+var optionspauseopened;
+var selectedstudytime;
+var selectedpausetime;
+var numberofsessions;
+var currentsession;
 
 function init(){
     buttonactivated = false;
+    optionsstudyopened = false;
+    optionspauseopened = false;
+    currentsession = 1;
+    numberofsessions = 1;
     buttonlistener();
     settingsposition();
     window.addEventListener('resize', function() {
@@ -13,6 +20,23 @@ function init(){
     });
     settingslistener();
     closebuttonlistener();
+    openoptionslistener();
+    openpauseoptionslistener();
+    stdoptionslistener();
+    psoptionslistener();
+}
+
+function timer(totalTime,minutes,seconds,timeElement) {
+    var interval = setInterval(function() {
+        if (totalTime <= 0) {
+            clearInterval(interval);
+        } else {
+            minutes = Math.floor(totalTime / 60);
+            seconds = totalTime % 60;
+            timeElement.innerHTML = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            totalTime--;
+        }
+    }, 1000);
 }
 
 function checkbuttonstatus(playbutton) {
@@ -27,7 +51,12 @@ function checkbuttonstatus(playbutton) {
 
 function buttonlistener() {
     playbutton = document.getElementById('play');
-    
+    timeElement = document.getElementById('time');
+    time = timeElement.innerHTML.split(':');
+    minutes = parseInt(time[0]);
+    seconds = parseInt(time[1]);
+    totalTime = minutes * 60 + seconds;
+
     playbutton.addEventListener('click', function() {
         checkbuttonstatus(playbutton);
         
@@ -67,7 +96,104 @@ function closebuttonlistener() {
         containersettings.style.width = '0vh';
         closebutton.style.width = '0vh';
         settingstitle.style.display = 'none';
+        closepsopt();
+        closestdfopt();
     })
 
+
+}
+
+function openstdopt() {
+    arrowbutton = document.getElementById('study-arrow');
+    rectangle = document.getElementById('study-rectangle');
+    pausetimesel = document.getElementById('pause-sel');
+    rectangle.style.marginTop = "-1vh";
+    rectangle.style.marginBottom = "0vh";
+    arrowbutton.style.transform = 'rotateX(180deg)';
+    pausetimesel.style.marginTop = '-2vh';
+    optionsstudyopened = true;
+}
+
+function closestdfopt(){
+    arrowbutton = document.getElementById('study-arrow');
+    rectangle = document.getElementById('study-rectangle');
+    pausetimesel = document.getElementById('pause-sel');
+    rectangle.style.marginTop = "-5.5vh";
+    rectangle.style.marginBottom = "-3vh";
+    arrowbutton.style.transform = 'rotateX(0deg)';
+    pausetimesel.style.marginTop = '-8vh';
+    optionsstudyopened = false;
+}
+function openpsopt(){
+    arrowbutton2 = document.getElementById('pause-arrow');
+    rectangle2 = document.getElementById('pause-rectangle');
+    rectangle2.style.marginTop = "-1vh";
+    rectangle2.style.marginBottom = "0vh";
+    arrowbutton2.style.transform = 'rotateX(180deg)';
+    optionspauseopened = true;
+}
+function closepsopt() {
+    arrowbutton2 = document.getElementById('pause-arrow');
+    rectangle2 = document.getElementById('pause-rectangle');
+    rectangle2.style.marginTop = "-5.5vh";
+    rectangle2.style.marginBottom = "-3vh";
+    arrowbutton2.style.transform = 'rotateX(0deg)';
+    optionspauseopened = false;
+}
+
+function openoptionslistener(){
+    arrowbutton = document.getElementById('study-arrow');
+    rectangle = document.getElementById('study-rectangle');
+    pausetimesel = document.getElementById('pause-sel');
+    arrowbutton.addEventListener('click', function(){
+        if(optionsstudyopened==false){
+            openstdopt();
+            closepsopt();
+        }else if (optionsstudyopened==true){
+            closestdfopt();
+        }
+        
+    });
+}
+
+function openpauseoptionslistener(){
+    arrowbutton2 = document.getElementById('pause-arrow');
+    rectangle2 = document.getElementById('pause-rectangle');
+    
+    arrowbutton2.addEventListener('click', function(){
+        if(optionspauseopened==false){
+            openpsopt();
+            closestdfopt();
+        }else if (optionspauseopened==true){
+            closepsopt();
+        }
+    });
+}
+
+function stdoptionslistener(){
+    divsoptions = document.querySelectorAll('.stdop');
+    time = document.getElementById('time');
+    selstd = document.getElementById('stsel-selected');
+    divsoptions.forEach(function(div){
+        div.addEventListener('click',function(){
+            time.innerHTML = this.innerHTML.replace(/\D/g, '') + ':00';
+            selectedstudytime = this.innerHTML.replace(/\D/g, '');
+            selstd.innerHTML = this.innerHTML;
+            closestdfopt();
+        });
+    });
+
+}
+
+function psoptionslistener(){
+    divsoptions = document.querySelectorAll('.psop');
+    selps = document.getElementById('pssel-selected');
+    divsoptions.forEach(function(div){
+        div.addEventListener('click',function(){
+            selectedpausetime = this.innerHTML.replace(/\D/g, '');
+            selps.innerHTML = this.innerHTML;
+            closepsopt();
+        });
+    });
 
 }

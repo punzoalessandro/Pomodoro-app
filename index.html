@@ -23,7 +23,7 @@
                     <div class="pom-sessions">1 of 4 sessions</div>
                     <div class="pom-time-next">
                         <div class="pom-time-blank"></div>
-                        <div class="time">25:00</div>
+                        <div class="time" id="time">25:00</div>
                         <div class="pom-next-blank"></div>
                         <div class="next"><svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.35943 7.84675L9.36522 16.8467C9.9658 17.762 9.9658 18.8298 9.36522 19.745L3.35943 28.745C2.45856 30.1179 3.35943 31.7959 4.86088 31.7959H9.36522C10.5664 31.7959 11.6174 31.1857 12.218 30.2705L18.8243 20.5078C19.7252 19.2874 19.7252 17.6095 18.8243 16.2366L12.3681 6.32132C11.7675 5.40607 10.5664 4.7959 9.51537 4.7959H5.01102C3.35943 4.7959 2.45856 6.62641 3.35943 7.84675Z" fill="white"/><path d="M16.8594 7.84675L22.8652 16.8467C23.4658 17.762 23.4658 18.8298 22.8652 19.745L16.8594 28.745C15.9586 30.1179 16.8594 31.7959 18.3609 31.7959H22.8652C24.0664 31.7959 25.1174 31.1857 25.718 30.2705L32.3243 20.5078C33.2252 19.2874 33.2252 17.6095 32.3243 16.2366L25.8681 6.32132C25.2675 5.40607 24.2165 4.7959 23.0154 4.7959H18.511C16.8594 4.7959 15.9586 6.62641 16.8594 7.84675Z" fill="white"/></svg></div>
                     </div>
@@ -46,19 +46,36 @@
                     <div class="studytime-selector">
                         <div class="study-selector">
                             <div class="stsel-title">Study time: </div>
-                            <div class="stsel-selected">25 min</div>
-                            <div class="stsel-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(40, 40, 40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                            <div class="stsel-selected" id="stsel-selected">25 min</div>
+                            <div class="stsel-arrow" id="study-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(40, 40, 40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                               </div>
                         </div>
-                        <div class="study-options"></div>                        
+                        <div class="study-options">
+                            <div class="rectangle" id="study-rectangle"></div>
+                            <div class="options" id="study-options">
+                                <div class="stdop">25 min</div>
+                                <div class="stdop">30 min</div>
+                                <div class="stdop">35 min</div>
+                                <div class="stdop">40 min</div>
+                            </div>
+                        </div>                        
                     </div>  
                     <div class="pausetime-selector">
-                        <div class="pause-selector">
+                        <div class="pause-selector" id="pause-sel" >
                             <div class="pssel-title">Pause time: </div>
-                            <div class="pssel-selected">5 min</div>
-                            <div class="pssel-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(40, 40, 40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                            <div class="pssel-selected" id='pssel-selected'>5 min</div>
+                            <div class="pssel-arrow" id="pause-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(40, 40, 40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                               </div>
                         </div>
+                        <div class="pause-options">
+                            <div class="rectangle" id="pause-rectangle"></div>
+                            <div class="options" id="pause-options">
+                                <div class="psop">5 min</div>
+                                <div class="psop">10 min</div>
+                                <div class="psop">15 min</div>
+                                <div class="psop">20 min</div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="pom-footer">
@@ -78,7 +95,13 @@
 
 
 
-
+    <svg>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -8" result="goo"></feColorMatrix>
+            <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+    </svg>    
     <script src="./script.js"></script>    
     </body>
 </html>
