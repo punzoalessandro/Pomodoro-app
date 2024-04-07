@@ -14,13 +14,13 @@
                     <div class="pom-tomato">
                         <div class="dot"></div>
                         <div class="tomato">
-                            <div class="tmt-img"><img src="./tomato.png" alt="" srcset=""></div>
+                            <div class="tmt-img"><img src="./tomato.png" alt="" srcset="" id="tmt"></div>
                         </div>
                     </div>
                     <div class="pom-nightmode"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.4494 33.0001C14.3994 33.0001 10.4994 31.5001 7.4994 28.5001C1.4994 22.5001 1.4994 13.0501 7.3494 7.20014C9.4494 4.95014 12.2994 3.45014 15.4494 3.00014C16.0494 2.85014 16.6494 3.15014 16.9494 3.75014C17.2494 4.35014 17.2494 4.95014 16.7994 5.40014C13.4994 9.15014 13.7994 15.0001 17.3994 18.6001C20.9994 22.2001 26.6994 22.5001 30.4494 19.2001C30.8994 18.7501 31.6494 18.7501 32.0994 19.0501C32.6994 19.3501 32.9994 19.9501 32.8494 20.5501C32.3994 23.7001 30.8994 26.4001 28.7994 28.6501C25.9494 31.5001 22.1994 33.0001 18.4494 33.0001Z" fill="white"/></svg></div>
                 </div>
                 <div class="pom-content">
-                    <div class="pom-sessions">1 of 4 sessions</div>
+                    <div class="pom-sessions" id="sessions">1 of 4 sessions</div>
                     <div class="pom-time-next">
                         <div class="pom-time-blank"></div>
                         <div class="time" id="time">25:00</div>
@@ -45,7 +45,7 @@
                 <div class="pom-content">
                     <div class="studytime-selector">
                         <div class="study-selector">
-                            <div class="stsel-title">Study time: </div>
+                            <div class="stsel-title" id="sttitle">Study time: </div>
                             <div class="stsel-selected" id="stsel-selected">25 min</div>
                             <div class="stsel-arrow" id="study-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(40, 40, 40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                               </div>
@@ -53,16 +53,16 @@
                         <div class="study-options">
                             <div class="rectangle" id="study-rectangle"></div>
                             <div class="options" id="study-options">
-                                <div class="stdop">25 min</div>
-                                <div class="stdop">30 min</div>
-                                <div class="stdop">35 min</div>
-                                <div class="stdop">40 min</div>
+                                <div class="stdop" id="opt">25 min</div>
+                                <div class="stdop" id="opt">30 min</div>
+                                <div class="stdop" id="opt">35 min</div>
+                                <div class="stdop" id="opt">40 min</div>
                             </div>
                         </div>                        
                     </div>  
                     <div class="pausetime-selector">
                         <div class="pause-selector" id="pause-sel" >
-                            <div class="pssel-title">Pause time: </div>
+                            <div class="pssel-title" id="pstitle">Pause time: </div>
                             <div class="pssel-selected" id='pssel-selected'>5 min</div>
                             <div class="pssel-arrow" id="pause-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(40, 40, 40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                               </div>
@@ -70,10 +70,10 @@
                         <div class="pause-options">
                             <div class="rectangle" id="pause-rectangle"></div>
                             <div class="options" id="pause-options">
-                                <div class="psop">5 min</div>
-                                <div class="psop">10 min</div>
-                                <div class="psop">15 min</div>
-                                <div class="psop">20 min</div>
+                                <div class="psop" id="opt">5 min</div>
+                                <div class="psop" id="opt">10 min</div>
+                                <div class="psop" id="opt">15 min</div>
+                                <div class="psop" id="opt">20 min</div>
                             </div>
                         </div> 
                     </div>
