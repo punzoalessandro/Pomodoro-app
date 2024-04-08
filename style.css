@@ -37,7 +37,7 @@ body{
 .pom-content{
     display: flex;
     width: 90%;
-    height: 80%;
+    height: 75%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -101,11 +101,10 @@ body{
     color:  white;
     font-weight: 1000;
     font-size: 5vh;
-    width: 80%;
 }
 
 .pom-reset{
-    margin-top: 40%;
+    margin-top: 30%;
 }
 .pom-time-next{
     width: 100%;
@@ -261,4 +260,31 @@ body{
 }
 #opt{
     display: none;
+}
+.pom-sessions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type='text']{
+    margin-left: 0.5vh;
+    width: 2vh;
+    height: 2.5vh;
+    margin-right: 0.5vh;
+    text-align: center;
+    background: none;
+    border: 0;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5vh;
+    font-weight: 300;
+    border: solid 1.5px rgba(255, 255, 255, 0.381);
+    border-radius: 9px;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.pom-nightmode{
+    cursor: pointer;
 }

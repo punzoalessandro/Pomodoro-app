@@ -9,11 +9,13 @@ var currentsession;
 var interval;
 var ispausetime;
 var currentsecond;
+var isnightmode;
 function init(){
     buttonactivated = false;
     optionsstudyopened = false;
     optionspauseopened = false;
     ispausetime = false;
+    isnightmode = false;
     selectedpausetime = 5;
     selectedstudytime = 25;
     currentsession = 1;
@@ -30,6 +32,7 @@ function init(){
     openpauseoptionslistener();
     stdoptionslistener();
     psoptionslistener();
+    changesessionslistener();
 }
 
 
@@ -51,7 +54,7 @@ function timer(timeElement) {
                         ispausetime = true;
                     }else{
                         currentsession++;
-                        sessions.innerHTML = currentsession + ' of '+ numberofsessions + ' sessions';
+                        sessions.innerHTML = currentsession+' of <div><input type="text" value="'+numberofsessions+'" id="ses-selector"></div><div> sessions</div>';
                         timeElement.innerHTML = selectedstudytime + ':' + '00';
                         timer(timeElement);
                         ispausetime = false;
@@ -252,5 +255,15 @@ function psoptionslistener(){
             closepsopt();
         });
     });
+}
 
+function changesessionslistener() {
+    sessel = document.getElementById('ses-selector');
+
+    sessel.addEventListener('input',function(){
+        if(isNaN(sessel.value)!=true){
+            console.log(sessel.value);
+            numberofsessions = sessel.value;
+        }
+    });
 }
